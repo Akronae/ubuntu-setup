@@ -1,0 +1,2 @@
+add_header Content-Type text/plain;
+return 200 "this is a test log from $uri";

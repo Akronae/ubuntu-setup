@@ -7,7 +7,8 @@ server {
 
     server_name template.reverse-proxy.com;
 
-    error_log /var/log/nginx/template.reverse-proxy.com-debug.log debug;
+    access_log /var/log/nginx/template.reverse-proxy-access.log;
+    error_log /var/log/nginx/template.reverse-proxy-error.log;
 
     location / {
         proxy_pass http://localhost:3330/;

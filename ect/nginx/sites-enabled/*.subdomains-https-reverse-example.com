@@ -2,9 +2,16 @@ server {
     listen 80;
     listen [::]:80;
 
-    server_name *.subdomains-https-reverse-example.com;
+    # <=> *.app-maville.com, with subdomain extracted to $subdomain
+    server_name ~^(?<subdomain>.+)\.app-maville\.com$;
 
     add_header Access-Control-Allow-Origin *;
+
+    # www is set to default subdomain
+    if ($subdomain = '') {
+        return 301 $scheme://www.$host$request_uri;
+    }
+
     return 301 https://$host$request_uri;
 }
 
@@ -12,14 +19,14 @@ server {
 server {
     listen 443 ssl;
 
-    server_name *.subdomains-https-reverse-example.com;
+    server_name *.app-maville.com;
 
-    ssl_certificate /etc/letsencrypt/live/*.subdomains-https-reverse-example.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/*.subdomains-https-reverse-example.com/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/app-maville.com-0001/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/app-maville.com-0001/privkey.pem;
     include /etc/letsencrypt/options-ssl-nginx.conf;
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
-    root /var/www/*.subdomains-https-reverse-example.com;
+    root /var/www/*.app-maville.com;
     index index.html;
 
     location / {

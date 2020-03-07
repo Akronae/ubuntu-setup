@@ -19,7 +19,7 @@ server {
 server {
     listen 443 ssl;
 
-    server_name *.app-maville.com;
+    server_name *.subdomains-https-reverse-example.com;
 
     ssl_certificate /etc/letsencrypt/live/*.subdomains-https-reverse-example.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/*.subdomains-https-reverse-example.com/privkey.pem;

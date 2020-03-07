@@ -2,8 +2,8 @@ server {
     listen 80;
     listen [::]:80;
 
-    # <=> *.app-maville.com, with subdomain extracted to $subdomain
-    server_name ~^(?<subdomain>.+)\.app-maville\.com$;
+    # <=> *.subdomains-https-reverse-example.com, with subdomain extracted to $subdomain
+    server_name ~^(?<subdomain>.+)\.subdomains-https-reverse-example\.com$;
 
     add_header Access-Control-Allow-Origin *;
 
@@ -21,12 +21,12 @@ server {
 
     server_name *.app-maville.com;
 
-    ssl_certificate /etc/letsencrypt/live/app-maville.com-0001/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/app-maville.com-0001/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/*.subdomains-https-reverse-example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/*.subdomains-https-reverse-example.com/privkey.pem;
     include /etc/letsencrypt/options-ssl-nginx.conf;
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
-    root /var/www/*.app-maville.com;
+    root /var/www/*.subdomains-https-reverse-example.com;
     index index.html;
 
     location / {

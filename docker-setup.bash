@@ -18,5 +18,6 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 # grants docker socket rights to current user
 sudo usermod -aG docker $USER
+su - $USER
 
 tput setaf 201; echo "Docker is up and fresh on this machine ✨"

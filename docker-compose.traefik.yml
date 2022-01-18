@@ -1,0 +1,39 @@
+version: "3.7"
+
+services:
+
+  traefik:
+    image: "traefik"
+    command:
+      - "--providers.docker=true"
+      - "--providers.docker.swarmMode=true"
+      - "--providers.docker.exposedbydefault=false"
+      # SSL configuration
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      - "--certificatesresolvers.myresolver.acme.email=alexandre@daubricourt.com"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+      # Entrypoints
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
+      - "--entrypoints.web.http.redirections.entrypoint.permanent=true"
+      - "--entrypoints.websecure.address=:443"
+      - "--entryPoints.postgres.address=:5432"
+    ports:
+      - "443:443" # websecure
+      - "80:80" # web
+      - "5432:5432" # postgres
+    volumes:
+      - "/docker-volumes/letsencrypt:/letsencrypt"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    networks:
+      - traefik-public
+    deploy:
+#      labels:
+      placement:
+        constraints:
+          - node.role == manager
+          
+networks:
+  traefik-public:
+    external: true

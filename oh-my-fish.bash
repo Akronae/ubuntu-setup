@@ -17,6 +17,7 @@ fisher install laughedelic/fish_logo
 # dependencies for fzf
 sudo apt install fzf fd-find bat 
 sudo ln -s /usr/bin/fdfind /usr/bin/fd
+sudo ln -s /usr/bin/batcat /usr/bin/bat
 
 fisher install PatrickF1/fzf.fish
 

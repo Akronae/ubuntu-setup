@@ -12,6 +12,13 @@ cp -r ./~/.config/fish ~/.config
 
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 fisher install jorgebucaran/autopair.fish
+fisher install laughedelic/fish_logo
+
+# dependencies for fzf
+sudo apt install fzf fd-find bat 
+sudo ln -s /usr/bin/fdfind /usr/bin/fd
+
+fisher install PatrickF1/fzf.fish
 
 set -L
 set -U fish_color_normal normal

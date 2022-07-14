@@ -1,3 +1,7 @@
+alias cat='bat --paging=never'
+
+fzf_configure_bindings --directory=\cf
+
 set -g fish_prompt_pwd_dir_length 80
 
 function fish_prompt -d "Screen Savvy prompt"

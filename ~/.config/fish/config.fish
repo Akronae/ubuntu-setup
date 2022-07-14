@@ -13,5 +13,6 @@ end
 funcsave fish_prompt
 
 function fish_greeting
+    fish_logo
 end
 funcsave fish_greeting

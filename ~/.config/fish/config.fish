@@ -1,4 +1,4 @@
-alias cat='bat --paging=never'
+alias cat='bat --paging=never --style=plain'
 
 fzf_configure_bindings --directory=\cf
 

@@ -34,7 +34,7 @@ services:
       placement:
         constraints:
           - node.role == manager
-          
+
 networks:
   traefik-public:
     external: true

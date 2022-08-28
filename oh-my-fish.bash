@@ -20,6 +20,7 @@ sudo ln -s /usr/bin/fdfind /usr/bin/fd
 sudo ln -s /usr/bin/batcat /usr/bin/bat
 
 fisher install PatrickF1/fzf.fish
+fisher install jorgebucaran/nvm.fish
 
 set -L
 set -U fish_color_normal normal

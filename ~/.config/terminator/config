@@ -1,0 +1,23 @@
+[global_config]
+[keybindings]
+  copy = <Primary>c
+  paste = <Primary>v
+[profiles]
+  [[default]]
+    cursor_color = "#aaaaaa"
+    show_titlebar = False
+    palette = "#171d20:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#97b8c9:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#d3d7cf"
+    use_theme_colors = True
+    copy_on_selection = True
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+      size = 1000, 700
+      position = 400:150
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]

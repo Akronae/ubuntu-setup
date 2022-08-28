@@ -1,3 +1,4 @@
+include /usr/share/nano/*
 set tabsize 2
 set linenumbers
 set autoindent

@@ -1,0 +1,17 @@
+[Desktop Entry]
+Type=Action
+TargetToolbar=true
+TargetLocation=true
+ToolbarLabel[en_US]=Open in Terminator
+ToolbarLabel[en]=Open in Terminator
+ToolbarLabel[C]=Open in Terminator
+Name[en_US]=Open in Terminator
+Name[en]=Open in Terminator
+Name[C]=Open in Terminator
+Profiles=profile-zero;
+
+[X-Action-Profile profile-zero]
+Exec=/usr/bin/terminator --working-directory=%d/%b
+Name[en_US]=Open in Terminator
+Name[en]=Open in Terminator
+Name[C]=Open in Terminator

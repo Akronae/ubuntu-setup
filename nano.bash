@@ -1,2 +1,2 @@
-cp ./~/.nanorc ~/.nanorc
-cp -r ./usr/share/nano/* /usr/share/nano/
+sudo cp ./~/.nanorc ~/.nanorc
+sudo cp -r ./usr/share/nano/* /usr/share/nano/

@@ -1,7 +1,7 @@
-include /usr/share/nano/*
 set tabsize 2
 set linenumbers
 set autoindent
 set smooth
 set titlecolor white,black
 set numbercolor white,black
+set nohelp

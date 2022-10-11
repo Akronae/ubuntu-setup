@@ -1,36 +1,24 @@
-# Supports `YAML` files
-syntax "YAML" "\.ya?ml$"
-header "^(---|===)" "%YAML"
+## Nano syntax highlighting for YAML files
+##
+## Author:      Leo Arnold
+## License:     Public Domain
+## URL:         https://gist.github.com/leoarnold/96272e33753aff09163cf18ad641f028
+
+syntax "yaml" "\.(yml|yaml)$"
 
 ## Keys
-color magenta "^\s*[\$A-Za-z0-9_-]+\:"
-color brightmagenta "^\s*@[\$A-Za-z0-9_-]+\:"
-
-## Values
-color white ":\s.+$"
-## Booleans
-icolor brightcyan " (y|yes|n|no|true|false|on|off)$"
-## Numbers
-color brightred " [[:digit:]]+(\.[[:digit:]]+)?"
-## Arrays
-color red "\[" "\]" ":\s+[|>]" "^\s*- "
-## Reserved
-color green "(^| )!!(binary|bool|float|int|map|null|omap|seq|set|str) "
+icolor brightmagenta "^[[:space:]]*(- )?[.0-9A-Z_/-]+:( |$)"
+## Structurals
+color yellow "(^---|^[[:space:]]*- |: |:$)"
+## Strings, double-quoted
+color yellow ""([^"]|(\\"))*""
+color yellow "\$(\w+|\{\w+\})"
+## Strings, single-quoted
+color yellow "'([^']|(\\'))*'"
 
 ## Comments
-color brightwhite "#.*$"
-
-## Errors
-color ,red ":\w.+$"
-color ,red ":'.+$"
-color ,red ":".+$"
-color ,red "\s+$"
-
-## Non closed quote
-color ,red "['\"][^['\"]]*$"
-
-## Closed quotes
-color yellow "['\"].*['\"]"
-
-## Equal sign
-color brightgreen ":( |$)"
+color green "(^|[[:space:]]+)#.*$"
+## Some common markers
+color black,red "(TODO|FIXME|\?\?\?)"
+## Trailing spaces
+color ,red "[[:space:]]+$"

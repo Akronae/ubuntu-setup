@@ -4,5 +4,7 @@ sudo apt install openssh-server
 sudo systemctl start ssh
 sudo ufw allow ssh
 
+sudo passwd -d `whoami`
+
 mkdir -p ~/.ssh
 cp -r $BASH_DIR/~/.ssh/* ~/.ssh/

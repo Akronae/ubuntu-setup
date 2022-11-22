@@ -1,4 +1,5 @@
 set tabsize 2
+set tabstospaces
 set linenumbers
 set autoindent
 set titlecolor white,black

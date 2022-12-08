@@ -8,11 +8,9 @@ echo "$(echo $'export PATH=$HOME/.local/bin:$PATH' | cat - ~/.zshrc)" > ~/.zshrc
 echo "$(echo $'export PATH=/usr/local/bin:$PATH' | cat - ~/.zshrc)" > ~/.zshrc
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-echo "\
-run each of the following commands:
-\033[0;31m
+zsh -c "
+. $ZSH/lib/cli.zsh
 omz theme set pygmalion
 omz plugin enable nvm
 omz plugin enable zsh-autosuggestions
-\033[0m
 "

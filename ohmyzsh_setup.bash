@@ -1,3 +1,5 @@
+sudo apt-get update
+
 sudo apt install curl wget git zsh bat
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 echo "$(echo $'zstyle \':omz:update\' mode auto' | cat - ~/.zshrc)" > ~/.zshrc

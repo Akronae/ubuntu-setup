@@ -9,7 +9,7 @@ echo "$(echo $'export PATH=/usr/local/bin:$PATH' | cat - ~/.zshrc)" > ~/.zshrc
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/hlissner/zsh-autopair ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autopair
 
-zsh -c "
+/bin/zsh -c "
 . $ZSH/lib/cli.zsh
 omz theme set pygmalion
 omz plugin enable nvm

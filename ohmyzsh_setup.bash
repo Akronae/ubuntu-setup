@@ -1,6 +1,6 @@
 sudo apt-get update
 
-sudo apt install curl wget git zsh bat
+sudo apt install curl wget git zsh bat -y
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 echo "$(echo $'zstyle \':omz:update\' mode auto' | cat - ~/.zshrc)" > ~/.zshrc
 echo "$(echo $'del () { mv "$@" /tmp; }' | cat - ~/.zshrc)" > ~/.zshrc
@@ -13,6 +13,7 @@ git clone https://github.com/hlissner/zsh-autopair ${ZSH_CUSTOM:-~/.oh-my-zsh/cu
 
 /bin/zsh -c "
 . ${ZSH:-/$USER/.oh-my-zsh}/lib/cli.zsh
+. $ZSH/themes/pygmalion.zsh-theme
 omz theme set pygmalion
 omz plugin enable nvm
 omz plugin enable zsh-autosuggestions

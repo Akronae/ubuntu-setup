@@ -13,7 +13,7 @@ git clone https://github.com/hlissner/zsh-autopair ${ZSH_CUSTOM:-~/.oh-my-zsh/cu
 
 /bin/zsh -c "
 . ${ZSH:-/$USER/.oh-my-zsh}/lib/cli.zsh
-. $ZSH/themes/pygmalion.zsh-theme
+. ${ZSH:-/$USER/.oh-my-zsh}/themes/pygmalion.zsh-theme
 omz theme set pygmalion
 omz plugin enable nvm
 omz plugin enable zsh-autosuggestions

@@ -12,8 +12,8 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/hlissner/zsh-autopair ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autopair
 
 /bin/zsh -c "
-. ${ZSH:-/$USER/.oh-my-zsh}/lib/cli.zsh
-. ${ZSH:-/$USER/.oh-my-zsh}/themes/pygmalion.zsh-theme
+export ZSH=${ZSH:-/$USER/.oh-my-zsh}
+. ${ZSH}/lib/cli.zsh
 omz theme set pygmalion
 omz plugin enable nvm
 omz plugin enable zsh-autosuggestions

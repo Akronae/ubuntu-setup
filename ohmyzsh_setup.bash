@@ -18,4 +18,5 @@ omz theme set pygmalion
 omz plugin enable nvm
 omz plugin enable zsh-autosuggestions
 omz plugin enable zsh-autopair
+zsh
 "

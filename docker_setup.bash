@@ -13,8 +13,8 @@ sudo apt-get -y update
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io haveged
 
 # docker-compose
-sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
+sudo apt-get -y update
+sudo apt-get -y install docker-compose-plugin
 
 # grants docker socket rights to current user
 sudo usermod -aG docker $USER

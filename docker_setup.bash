@@ -16,4 +16,4 @@ echo \
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-tput setaf 201; echo "Docker is up and fresh on this machine ✨"
+tput setaf 201; echo "Docker is up and fresh on this machine ✨"; tput sgr0

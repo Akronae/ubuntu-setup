@@ -1,9 +1,8 @@
 version: "3.7"
 
 services:
-
   traefik:
-    image: "traefik"
+    image: "traefik:v2.11.8"
     command:
       - "--providers.docker=true"
       - "--providers.docker.swarmMode=true"
@@ -30,7 +29,7 @@ services:
     networks:
       - traefik-public
     deploy:
-#      labels:
+      #      labels:
       placement:
         constraints:
           - node.role == manager

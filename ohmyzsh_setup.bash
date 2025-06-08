@@ -1,15 +1,22 @@
 sudo apt-get update
 
 sudo apt install curl wget git zsh bat fzf -y
+chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "$(echo $'zstyle \':omz:update\' mode auto' | cat - ~/.zshrc)" > ~/.zshrc
-echo "$(echo $'del () { mv "$@" /tmp; }' | cat - ~/.zshrc)" > ~/.zshrc
+echo "$(echo $'alias code="\'/mnt/c/Program Files/Microsoft VS Code/bin/code\'"' | cat - ~/.zshrc)" > ~/.zshrc
 echo "$(echo $'alias cat="batcat --paging=never --style=plain"' | cat - ~/.zshrc)" > ~/.zshrc
 echo "$(echo $'export PATH=$HOME/bin:$PATH' | cat - ~/.zshrc)" > ~/.zshrc
 echo "$(echo $'export PATH=$HOME/.local/bin:$PATH' | cat - ~/.zshrc)" > ~/.zshrc
 echo "$(echo $'export PATH=/usr/local/bin:$PATH' | cat - ~/.zshrc)" > ~/.zshrc
-print -r -- 'history_clear() {
+
+cat << 'EOF' >> ~/.zshrc
+
+wt () { wt.exe -d "$(pwd)"; }
+cdd () { cd  /mnt/c/Users/$USER; }
+
+history_clear() {
   if [[ -z "$1" ]]; then
     echo "Usage: remove_history_prefix <prefix>"
     return 1
@@ -25,10 +32,6 @@ print -r -- 'history_clear() {
   fc -R "$history_file"
   echo "Entries starting with '\''$prefix'\'' removed from history."
 }
-
-' > ~/.zshrc.tmp && cat ~/.zshrc >> ~/.zshrc.tmp && mv ~/.zshrc.tmp ~/.zshrc
-
-cat << 'EOF' >> ~/.zshrc
 
 function del() {
   local TRASH_DIR="$HOME/.trash"
